@@ -12,22 +12,24 @@ import javax.servlet.http.HttpServletResponse;
 import model.bean.News;
 import model.dao.NewsDao;
 
-public class PublicIndexNewsController extends HttpServlet {
+public class PublicCatNewsController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	public PublicIndexNewsController() {
+	public PublicCatNewsController() {
 		super();
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		ArrayList<News> listNews = NewsDao.getItems();
-		request.setAttribute("listNews", listNews);
-		RequestDispatcher rd = request.getRequestDispatcher("/bnews/index.jsp");
+		int idCat = Integer.valueOf(request.getParameter("cid"));
+		ArrayList<News> listNewsByIdCat = NewsDao.getItemsByIdCat(idCat);
+		request.setAttribute("listNewsByIdCat", listNewsByIdCat);
+		RequestDispatcher rd = request.getRequestDispatcher("/bnews/cat.jsp");
 		rd.forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 	}
+
 }

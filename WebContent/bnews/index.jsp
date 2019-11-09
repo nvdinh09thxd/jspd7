@@ -1,6 +1,6 @@
 <%@page import="model.bean.News"%>
 <%@page import="java.util.ArrayList"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@include file="inc/header.jsp"%>
 <div class="content-left fl">
@@ -20,10 +20,10 @@
 			%>
 			<li>
 				<h2>
-					<a href="detail.html" title=""><%=objNews.getName() %></a>
+					<a href="detail.html" title=""><%=objNews.getName()%></a>
 				</h2>
 				<div class="item">
-					<p><%=objNews.getDescription() %></p>
+					<p><%=objNews.getDescription()%></p>
 					<div class="clr"></div>
 				</div>
 			</li>
