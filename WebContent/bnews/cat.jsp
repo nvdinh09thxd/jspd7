@@ -6,7 +6,12 @@
 	<%@include file="inc/left_bar.jsp"%>
 </div>
 <div class="content-right fr">
-	<h3>Thời sự</h3>
+	<%
+		int idCat = Integer.valueOf(request.getParameter("cid"));
+		Category itemCat = CatDao.getItem(idCat);
+		String catName = itemCat.getName();
+	%>
+	<h3><%=catName%></h3>
 	<div class="main-content items-new">
 		<%
 			@SuppressWarnings("unchecked")
@@ -19,7 +24,7 @@
 			%>
 			<li>
 				<h2>
-					<a href="detail.html" title=""><%=objNews.getName()%></a>
+					<a href="<%=request.getContextPath() %>/detail?id=<%=objNews.getId()%>" title=""><%=objNews.getName()%></a>
 				</h2>
 				<div class="item">
 					<p><%=objNews.getDescription()%></p>
@@ -30,6 +35,10 @@
 				}
 			%>
 		</ul>
+		<%
+			} else {
+		%>
+		<p>Không có tin nào!</p>
 		<%
 			}
 		%>

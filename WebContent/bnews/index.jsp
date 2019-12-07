@@ -20,7 +20,7 @@
 			%>
 			<li>
 				<h2>
-					<a href="detail.html" title=""><%=objNews.getName()%></a>
+					<a href="<%=request.getContextPath() %>/detail?id=<%=objNews.getId()%>" title=""><%=objNews.getName()%></a>
 				</h2>
 				<div class="item">
 					<p><%=objNews.getDescription()%></p>

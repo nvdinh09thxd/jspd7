@@ -20,7 +20,14 @@ public class PublicDetailNewsController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		int id = 1;
+		int id = 0;
+		try {
+			id = Integer.valueOf(request.getParameter("id"));
+		} catch (NumberFormatException e) {
+			RequestDispatcher rd = request.getRequestDispatcher("/bnews/PageNotFound.jsp");
+			rd.forward(request, response);
+			return;
+		}
 		News itemNews = NewsDao.getItem(id);
 		request.setAttribute("itemNews", itemNews);
 		RequestDispatcher rd = request.getRequestDispatcher("/bnews/detail.jsp");

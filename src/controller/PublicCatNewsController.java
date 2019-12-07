@@ -21,7 +21,14 @@ public class PublicCatNewsController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		int idCat = Integer.valueOf(request.getParameter("cid"));
+		int idCat = 0;
+		try {
+			idCat = Integer.valueOf(request.getParameter("cid"));
+		} catch (NumberFormatException e) {
+			RequestDispatcher rd = request.getRequestDispatcher("/bnews/PageNotFound.jsp");
+			rd.forward(request, response);
+			return;
+		}
 		ArrayList<News> listNewsByIdCat = NewsDao.getItemsByIdCat(idCat);
 		request.setAttribute("listNewsByIdCat", listNewsByIdCat);
 		RequestDispatcher rd = request.getRequestDispatcher("/bnews/cat.jsp");

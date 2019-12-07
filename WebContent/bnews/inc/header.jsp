@@ -14,10 +14,10 @@
 		<!-- begin header -->
 		<div id="header">
 			<div class="header-left fl">
-				<a href="index.php" title=""><img src="<%=request.getContextPath() %>/bnews/images/logo_edu.png" alt="" /></a>
+				<a href="<%=request.getContextPath() %>/index" title=""><img src="<%=request.getContextPath() %>/bnews/images/logo_edu.png" alt="" /></a>
 			</div>
 			<div class="header-right fr">
-				<a href="index.php" title=""><img src="<%=request.getContextPath() %>/bnews/images/banner.jpg" alt="" /></a>
+				<a href="<%=request.getContextPath() %>/index" title=""><img src="<%=request.getContextPath() %>/bnews/images/banner.jpg" alt="" /></a>
 			</div>
 			<div class="clr"></div>
 		</div>
@@ -26,7 +26,7 @@
 		<!-- begin menu -->
 		<div id="menu">
 			<ul>
-				<li class="active"><a href="index.php" title="">Trang chủ</a></li>
+				<li class="active"><a href="<%=request.getContextPath() %>/index" title="">Trang chủ</a></li>
 			</ul>
 			<div class="clr"></div>
 		</div>
