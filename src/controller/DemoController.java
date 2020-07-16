@@ -28,7 +28,7 @@ public class DemoController extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 		request.setCharacterEncoding("UTF-8");
 		PrintWriter out = response.getWriter();
-		// nạp driver
+		// nạp driver...
 		String username = "root";
 		String password = "";
 		String url = "jdbc:mysql://localhost:3306/tintuc?useUnicode=yes&characterEncoding=UTF-8";
