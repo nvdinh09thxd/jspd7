@@ -14,7 +14,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/demo")
+
+@WebServlet("/DemoController")
 public class DemoController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -28,7 +29,7 @@ public class DemoController extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 		request.setCharacterEncoding("UTF-8");
 		PrintWriter out = response.getWriter();
-		// nạp driver...
+		// nạp driver
 		String username = "root";
 		String password = "";
 		String url = "jdbc:mysql://localhost:3306/tintuc?useUnicode=yes&characterEncoding=UTF-8";
@@ -75,7 +76,6 @@ public class DemoController extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		doGet(request, response);
 	}
 
 }
