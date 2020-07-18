@@ -43,23 +43,32 @@ public class DemoController extends HttpServlet {
 			conn = DriverManager.getConnection(url, username, password);
 			String sql = "SELECT * FROM danhmuctin";
 			String sqlInsert = "INSERT INTO danhmuctin (tendanhmuctin) VALUES (?)";
+			String sqlUpdate = "UPDATE danhmuctin SET tendanhmuctin = ? WHERE tendanhmuctin = ?";
 			ArrayList<String> arData = new ArrayList<>();
 			arData.add("Tin thời sự");
 			arData.add("Tin thế giới");
 			arData.add("Tin Việt Nam");
-			st = conn.createStatement();
-			pst = conn.prepareStatement(sqlInsert);
 			// Thêm danh mục tin
+			pst = conn.prepareStatement(sqlInsert);
 			int n = insertData(pst, arData);
 			if (n > 0)
 				System.out.println("Đã thêm vào thành công " + n + " tin!");
+
+			// Sửa danh mục tin
+			pst = conn.prepareStatement(sqlUpdate);
+			int m = updateData(pst, "123", "456");
+			if (m > 0)
+				System.out.println("Đã sửa vào thành công " + m + " tin!");
+
 			// Select dữ liệu
+			st = conn.createStatement();
 			rs = selectData(st, sql);
 			// Hiển thị dữ liệu
 			displayData(rs, out);
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
 		} finally {
+			// Đóng các kết nối
 			if (rs != null)
 				try {
 					rs.close();
@@ -91,6 +100,11 @@ public class DemoController extends HttpServlet {
 			throws ServletException, IOException {
 	}
 
+	/*
+	 * Hàm này để thêm mới dữ liệu vào csdl 
+	 * Biến vào là một mảng dữ liệu vào 
+	 * Biến ra là số bản ghi thêm thành công
+	 */
 	public int insertData(PreparedStatement pst, ArrayList<String> arData) {
 		int results = 0;
 		for (String obj : arData) {
@@ -99,11 +113,32 @@ public class DemoController extends HttpServlet {
 				pst.executeUpdate();
 				results++;
 			} catch (SQLException e) {
+				e.printStackTrace();
 			}
 		}
 		return results;
 	}
 
+	/*
+	 * Hàm này để cập nhật dữ liệu trong csdl 
+	 * Biến vào là tên mới và tên cũ muốn thay đổi 
+	 * Biến ra là số bản ghi cập nhật thành công
+	 */
+	public int updateData(PreparedStatement pst, String newData, String oldData) {
+		int results = 0;
+		try {
+			pst.setString(1, newData);
+			pst.setString(2, oldData);
+			results = pst.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return results;
+	}
+
+	/*
+	 * Hàm này để select dữ liệu từ csdl
+	 */
 	public ResultSet selectData(Statement st, String sql) {
 		ResultSet rs = null;
 		try {
@@ -115,6 +150,9 @@ public class DemoController extends HttpServlet {
 
 	}
 
+	/*
+	 * Hàm này để hiển thị dữ liệu đã select được ra trình duyệt
+	 */
 	public void displayData(ResultSet rs, PrintWriter out) {
 		try {
 			while (rs.next()) {
