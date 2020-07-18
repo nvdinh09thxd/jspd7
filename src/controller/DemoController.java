@@ -30,7 +30,7 @@ public class DemoController extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 		request.setCharacterEncoding("UTF-8");
 		PrintWriter out = response.getWriter();
-		// nạp driver
+		// Khai báo các tham số
 		String username = "root";
 		String password = "";
 		String url = "jdbc:mysql://localhost:3306/tintuc?useUnicode=yes&characterEncoding=UTF-8";
@@ -41,7 +41,6 @@ public class DemoController extends HttpServlet {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			conn = DriverManager.getConnection(url, username, password);
-			// hiển thị danh sách các danh mục
 			String sql = "SELECT * FROM danhmuctin";
 			String sqlInsert = "INSERT INTO danhmuctin (tendanhmuctin) VALUES (?)";
 			ArrayList<String> arData = new ArrayList<>();
@@ -50,10 +49,13 @@ public class DemoController extends HttpServlet {
 			arData.add("Tin Việt Nam");
 			st = conn.createStatement();
 			pst = conn.prepareStatement(sqlInsert);
-			int n = 0;//insertData(pst, arData);
+			// Thêm danh mục tin
+			int n = insertData(pst, arData);
 			if (n > 0)
 				System.out.println("Đã thêm vào thành công " + n + " tin!");
+			// Select dữ liệu
 			rs = selectData(st, sql);
+			// Hiển thị dữ liệu
 			displayData(rs, out);
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
