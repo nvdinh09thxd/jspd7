@@ -8,6 +8,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import model.bean.Category;
+import util.ConnectDBMyFriends;
 import util.ConnectDBNews;
 
 public class CatDao {
@@ -58,4 +59,49 @@ public class CatDao {
 		}
 		return item;
 	}
+
+	public static ArrayList<Category> getFriendList() {
+		ArrayList<Category> listItems = new ArrayList<>();
+		conn = ConnectDBMyFriends.getConnection();
+		try {
+			String sql = "SELECT * FROM friend_list";
+			st = conn.createStatement();
+			rs = st.executeQuery(sql);
+			while (rs.next()) {
+				int id = rs.getInt("fl_id");
+				String name = rs.getString("fl_name");
+				Category objItem = new Category(id, name);
+				listItems.add(objItem);
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			ConnectDBMyFriends.close(rs, st, conn);
+		}
+		return listItems;
+	}
+
+	public static Category getFriendList(int idCat) {
+		Category items = null;
+		conn = ConnectDBMyFriends.getConnection();
+		try {
+			String sql = "SELECT * FROM friend_list WHERE fl_id=?";
+			pst = conn.prepareStatement(sql);
+			pst.setInt(1, idCat);
+			rs = pst.executeQuery();
+			if (rs.next()) {
+				int id = rs.getInt("fl_id");
+				String name = rs.getString("fl_name");
+				items = new Category(id, name);
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			ConnectDBMyFriends.close(rs, pst, conn);
+		}
+		return items;
+	}
+
 }

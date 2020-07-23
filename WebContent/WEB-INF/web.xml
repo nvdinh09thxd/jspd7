@@ -28,4 +28,28 @@
     <servlet-name>PublicDetailNewsController</servlet-name>
     <url-pattern>/detail</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>PublicIndexFriendController</servlet-name>
+    <servlet-class>controller.PublicIndexFriendController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PublicIndexFriendController</servlet-name>
+    <url-pattern>/friends</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>PublicCatFriendController</servlet-name>
+    <servlet-class>controller.PublicCatFriendController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PublicCatFriendController</servlet-name>
+    <url-pattern>/friend/cat</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>PublicDetailFriendController</servlet-name>
+    <servlet-class>controller.PublicDetailFriendController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PublicDetailFriendController</servlet-name>
+    <url-pattern>/friend/detail</url-pattern>
+  </servlet-mapping>
 </web-app>
