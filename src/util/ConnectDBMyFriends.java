@@ -11,7 +11,7 @@ public class ConnectDBMyFriends {
 	private static Connection conn;
 	private static final String username = "root";
 	private static final String password = "";
-	private static final String url = "jdbc:mysql://localhost:3306/myfriends2?useUnicode=yes&characterEncoding=UTF-8";
+	private static final String url = "jdbc:mysql://localhost:3306/myfriends1?useUnicode=yes&characterEncoding=UTF-8";
 	public static Connection getConnection() {
 		try {
 			try {

@@ -6,7 +6,7 @@
 <h3>Danh mục tin</h3>
 <%
 	ArrayList<Category> listCats = CatDao.getItems();
-	if (listCats != null && listCats.size() > 0) {
+	if (listCats.size() > 0) {
 %>
 <ul>
 	<%

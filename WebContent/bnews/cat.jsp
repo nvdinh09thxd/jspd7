@@ -10,7 +10,7 @@
 		int idCat = Integer.parseInt(request.getParameter("cid"));
 		Category itemCat = CatDao.getItem(idCat);
 		String catName = "";
-		if(itemCat!=null){
+		if(itemCat != null){
 			catName = itemCat.getName();
 		}
 	%>
