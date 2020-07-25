@@ -68,7 +68,7 @@
 		 <div class="banner-links">
 			 <ul>
 				 <li id="index"><a href="<%=request.getContextPath()%>/friends">Những người bạn</a></li>
-				 <li id="contact"><a href="<%=request.getContextPath()%>/BT3/lien-he.jsp">Liên hệ</a></li>
+				 <li id="contact"><a href="<%=request.getContextPath()%>/friend/contact">Liên hệ</a></li>
 				 <div class="clearfix"></div>
 			 </ul>
 		 </div>

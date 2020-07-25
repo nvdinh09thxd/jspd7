@@ -52,4 +52,20 @@
     <servlet-name>PublicDetailFriendController</servlet-name>
     <url-pattern>/friend/detail</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>PublicContactFriendController</servlet-name>
+    <servlet-class>controller.PublicContactFriendController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PublicContactFriendController</servlet-name>
+    <url-pattern>/friend/contact</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>PublicSearchFriendController</servlet-name>
+    <servlet-class>controller.PublicSearchFriendController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PublicSearchFriendController</servlet-name>
+    <url-pattern>/friend/search</url-pattern>
+  </servlet-mapping>
 </web-app>

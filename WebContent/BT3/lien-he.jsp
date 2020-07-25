@@ -21,9 +21,9 @@
 			 
 			  <form action="<%=request.getContextPath()%>/friend/contact" method="post">
 				  <div class="col-md-6 contact-left">
-						<input type="text" placeholder="Name" value="<%if(name!=null) out.print(name); %>" required="" name="name">
-						<input type="text" placeholder="E-mail" value="<%if(email!=null) out.print(email); %>" required="" name="email">
-						<input type="text" placeholder="Phone" value="<%if(phone!=null) out.print(phone); %>" required="" name="phone">
+						<input type="text" placeholder="Name" value="<%if(name!=null) out.print(name); %>" required name="name">
+						<input type="text" placeholder="E-mail" value="<%if(email!=null) out.print(email); %>" required name="email">
+						<input type="text" placeholder="Phone" value="<%if(phone!=null) out.print(phone); %>" required name="phone">
 				 </div>
 				 <div class="col-md-6 contact-right">
 						 <textarea placeholder="Message" name="message"><%if(message!=null) out.print(message); %></textarea>
