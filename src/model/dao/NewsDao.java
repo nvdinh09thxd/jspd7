@@ -65,13 +65,13 @@ public class NewsDao {
 		return listItems;
 	}
 
-	public static News getItem(int idSong) {
+	public static News getItem(int idNews) {
 		News item = null;
 		conn = ConnectDBNews.getConnection();
 		try {
 			String sql = "SELECT * FROM news WHERE id = ?";
 			pst = conn.prepareStatement(sql);
-			pst.setInt(1, idSong);
+			pst.setInt(1, idNews);
 			rs = pst.executeQuery();
 			if (rs.next()) {
 				int id = rs.getInt("id");

@@ -1,3 +1,4 @@
+<%@page import="java.text.SimpleDateFormat"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@include file="/BT3/inc/header.jsp" %>
@@ -6,12 +7,13 @@
 		 <div class="content-grids">
 			 <div class="col-md-8 content-main">
 			 <%
-		 		Category itemCat = (Category) request.getAttribute("itemCat");
+			 	int cid = Integer.parseInt(request.getParameter("cid"));
+		 		Category itemCat = CatDao.getFriendListById(cid);
 			 	if(itemCat != null){
 			 %>				 
 				 <h1 class="title"><span>Những người bạn >> </span><%=itemCat.getName() %></h1>
-				 <%} %>
-				 <%
+				 <%}
+			 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 				 	@SuppressWarnings("unchecked")
 					ArrayList<Friend> listFriendsByIdCat = (ArrayList<Friend>) request.getAttribute("listFriendsByIdCat");
 						if (listFriendsByIdCat != null && listFriendsByIdCat.size() > 0) {
@@ -20,7 +22,7 @@
 				 <div class="content-grid-sec">
 					 <div class="content-sec-info">
 							 <h3><a href="<%=request.getContextPath()%>/friend/detail?did=<%=item.getId()%>"><%=item.getName() %></a></h3>
-							 <h4>Đăng ngày: <%=item.getDateCreate() %> - Lượt xem: <%=item.getCountNumber() %></h4>
+							 <h4>Đăng ngày: <%=sdf.format(item.getDateCreate()) %> - Lượt xem: <%=item.getCountNumber() %></h4>
 							 <p><%=item.getPreview() %></p>
 							 <img src="<%=request.getContextPath() %>/BT3/images/<%=item.getPicture() %>" alt="<%=item.getPicture() %>"/>
 							 <a class="bttn" href="<%=request.getContextPath()%>/friend/detail?did=<%=item.getId()%>">Chi tiết bạn tôi</a>

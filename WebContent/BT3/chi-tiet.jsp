@@ -1,3 +1,4 @@
+<%@page import="java.text.SimpleDateFormat"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@include file="/BT3/inc/header.jsp" %>
@@ -7,12 +8,13 @@
 			 <div class="col-md-8 content-main">
 				 <div class="content-grid">
 				 <%
+				 	SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 					 Friend itemFriend = (Friend) request.getAttribute("itemFriend");
 					 	if (itemFriend != null) {
 				 %>
 					 <div class="content-grid-head">
 						 <h3><a href="<%=request.getContextPath()%>/friend/cat?cid=<%=itemFriend.getFl().getId()%>" title=""><%=itemFriend.getFl().getName() %></a></h3>
-						 <h4>Đăng ngày: <%=itemFriend.getDateCreate() %> - Lượt xem: <%=itemFriend.getCountNumber() %></h4>
+						 <h4>Đăng ngày: <%=sdf.format(itemFriend.getDateCreate()) %> - Lượt xem: <%=itemFriend.getCountNumber() %></h4>
 						 <div class="clearfix"></div>
 					 </div>
 					 <div class="content-grid-single">

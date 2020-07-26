@@ -140,7 +140,7 @@ public class FriendDao {
 		try {
 			String sql = "SELECT * FROM friends as f JOIN friend_list as fl ON f.fl_id=fl.fl_id WHERE f.fname LIKE ?";
 			pst = conn.prepareStatement(sql);
-			String a = "%"+fname+"%";
+			String a = "%" + fname + "%";
 			pst.setString(1, a);
 			rs = pst.executeQuery();
 			while (rs.next()) {

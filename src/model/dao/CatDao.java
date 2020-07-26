@@ -82,7 +82,7 @@ public class CatDao {
 		return listItems;
 	}
 
-	public static Category getFriendList(int idCat) {
+	public static Category getFriendListById(int idCat) {
 		Category items = null;
 		conn = ConnectDBMyFriends.getConnection();
 		try {

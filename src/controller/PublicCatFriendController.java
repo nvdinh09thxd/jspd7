@@ -32,9 +32,7 @@ public class PublicCatFriendController extends HttpServlet {
 			return;
 		}
 		ArrayList<Friend> listFriendsByIdCat = FriendDao.getItemsByIdCat(cid);
-		Category itemCat = CatDao.getFriendList(cid);
 		request.setAttribute("listFriendsByIdCat", listFriendsByIdCat);
-		request.setAttribute("itemCat", itemCat);
 
 		RequestDispatcher rd = request.getRequestDispatcher("/BT3/danh-muc.jsp");
 		rd.forward(request, response);

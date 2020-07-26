@@ -29,7 +29,9 @@ public class PublicDetailFriendController extends HttpServlet {
 			rd.forward(request, response);
 			return;
 		}
+			//Lấy chi tiết bạn bè theo id
 			Friend itemFriend = FriendDao.getItem(did);
+			//Lấy danh sách bạn bè liên quan (là những bạn có chung id_cat nhưng khác bạn bè đang xem)
 			ArrayList<Friend> listRelatedFriends = FriendDao.getRelatedFriends(did);
 			request.setAttribute("itemFriend", itemFriend);
 			request.setAttribute("listRelatedFriends", listRelatedFriends);
