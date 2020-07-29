@@ -8,7 +8,7 @@
 			 <div class="col-md-8 content-main">
 			 <%
 			 	int cid = Integer.parseInt(request.getParameter("cid"));
-		 		Category itemCat = CatDao.getFriendListById(cid);
+		 		Category itemCat = CatDao.getFriendListByIdCat(cid);
 			 	if(itemCat != null){
 			 %>				 
 				 <h1 class="title"><span>Những người bạn >> </span><%=itemCat.getName() %></h1>
