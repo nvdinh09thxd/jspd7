@@ -8,12 +8,12 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class ConnectDBNews {
-	private static Connection conn;
 	private static final String username = "root";
 	private static final String password = "";
 	private static final String url = "jdbc:mysql://localhost:3306/bnews?useUnicode=yes&characterEncoding=UTF-8";
 
 	public static Connection getConnection() {
+		Connection conn = null;
 			try {
 				Class.forName("com.mysql.jdbc.Driver");
 				conn = DriverManager.getConnection(url, username, password);

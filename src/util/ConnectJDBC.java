@@ -12,12 +12,15 @@ public class ConnectJDBC {
 		Connection conn = null;
 		Statement st = null;
 		ResultSet rs = null;
+
+		String url = "jdbc:mysql://localhost:3306/tintuc?useUnicode=true&characterEncoding=UTF-8";
+		String username = "root";
+		String password = "";
 		try {
 			// Nạp driver
 			Class.forName("com.mysql.jdbc.Driver");
 			// Tạo connection
-			conn = DriverManager.getConnection(
-					"jdbc:mysql://localhost:3306/tintuc?useUnicode=true&characterEncoding=UTF-8", "root", "");
+			conn = DriverManager.getConnection(url, username, password);
 			System.out.println("Connection: " + conn);
 			// Lấy danh sách các danh mục tin
 			final String SQL_GET_ALL = "SELECT ID_DanhMucTin, TenDanhMucTin AS Ten FROM danhmuctin";
