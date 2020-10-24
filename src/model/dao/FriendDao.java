@@ -108,7 +108,7 @@ public class FriendDao {
 		conn = ConnectDBMyFriends.getConnection();
 		try {
 			String sql = "SELECT * FROM friends as f JOIN friend_list as fl ON f.fl_id=fl.fl_id WHERE f.fl_id="
-					+ "(SELECT fl_id FROM friends WHERE fid = ?) AND f.fid !=?";
+					+ "(SELECT fl_id FROM friends WHERE fid = ?) AND f.fid != ?";
 			pst = conn.prepareStatement(sql);
 			pst.setInt(1, did);
 			pst.setInt(2, did);

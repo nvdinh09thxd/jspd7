@@ -31,6 +31,11 @@ public class PublicDetailFriendController extends HttpServlet {
 		}
 			//Lấy chi tiết bạn bè theo id
 			Friend itemFriend = FriendDao.getItem(did);
+			if (itemFriend == null) {
+				RequestDispatcher rd = request.getRequestDispatcher("/BT3/PageNotFound.jsp");
+				rd.forward(request, response);
+				return;
+			}
 			//Lấy danh sách bạn bè liên quan (là những bạn có chung id_cat nhưng khác bạn bè đang xem)
 			ArrayList<Friend> listRelatedFriends = FriendDao.getRelatedFriends(did);
 			request.setAttribute("itemFriend", itemFriend);
