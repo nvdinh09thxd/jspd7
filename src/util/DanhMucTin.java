@@ -17,7 +17,7 @@ public class DanhMucTin {
 			conn = JDBCConnectionUtil.getConnection();
 			// System.out.println("Connection: " + conn);
 			// Lấy danh sách các danh mục tin
-			final String SQL_SELECT_ID_3 = "SELECT ID_DanhMucTin, TenDanhMucTin FROM danhmuctin WHERE ID_DanhMucTin = 3";
+			final String SQL_SELECT_ID_3 = "SELECT ID_DanhMucTin, TenDanhMucTin FROM danhmuctin WHERE ID_DanhMucTin = 1";
 			// Thực thi truy vấn
 			st = conn.createStatement();
 			rs = st.executeQuery(SQL_SELECT_ID_3);

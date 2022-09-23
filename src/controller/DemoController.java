@@ -156,7 +156,7 @@ public class DemoController extends HttpServlet {
 	public void displayData(ResultSet rs, PrintWriter out) {
 		try {
 			while (rs.next()) {
-				int idDanhMuc = rs.getInt("id_danhmuctin");
+				int idDanhMuc = rs.getInt("iddanhmuctin");
 				String tenDanhMuc = rs.getString("tendanhmuctin");
 				out.println("ID danh muc: " + idDanhMuc + "<br />");
 				out.println("Tên danh muc: " + tenDanhMuc + "<br />");

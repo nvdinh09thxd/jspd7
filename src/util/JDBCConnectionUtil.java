@@ -10,7 +10,7 @@ public class JDBCConnectionUtil {
 
 	private static final String USERNAME = "root";
 	private static final String PASSWORD = "";
-	private static final String URL = "jdbc:mysql://localhost:3306/tintuc?useUnicode=true&characterEncoding=UTF-8";
+	private static final String URL = "jdbc:mysql://localhost:3306/cnews?useUnicode=true&characterEncoding=UTF-8";
 
 	public static Connection getConnection() {
 		Connection conn = null;

@@ -5,7 +5,7 @@ public class News {
 	private String name;
 	private String description;
 	private String detail;
-	private int id_cat;
+	private int idCat;
 
 	public String getDetail() {
 		return detail;
@@ -15,12 +15,12 @@ public class News {
 		this.detail = detail;
 	}
 
-	public int getId_cat() {
-		return id_cat;
+	public int getIdCat() {
+		return idCat;
 	}
 
-	public void setId_cat(int id_cat) {
-		this.id_cat = id_cat;
+	public void setIdCat(int id_cat) {
+		this.idCat = id_cat;
 	}
 
 	public int getId() {
@@ -47,13 +47,13 @@ public class News {
 		this.description = description;
 	}
 
-	public News(int id, String name, String description, String detail, int id_cat) {
+	public News(int id, String name, String description, String detail, int idCat) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.description = description;
 		this.detail = detail;
-		this.id_cat = id_cat;
+		this.idCat = idCat;
 	}
 
 	public News() {

@@ -13,7 +13,7 @@ public class ConnectJDBC {
 		Statement st = null;
 		ResultSet rs = null;
 
-		String url = "jdbc:mysql://localhost:3306/tintuc?useUnicode=true&characterEncoding=UTF-8";
+		String url = "jdbc:mysql://localhost:3306/bsongs?useUnicode=true&characterEncoding=UTF-8";
 		String username = "root";
 		String password = "";
 		try {
@@ -23,17 +23,18 @@ public class ConnectJDBC {
 			conn = DriverManager.getConnection(url, username, password);
 			System.out.println("Connection: " + conn);
 			// Lấy danh sách các danh mục tin
-			final String SQL_GET_ALL = "SELECT ID_DanhMucTin, TenDanhMucTin AS Ten FROM danhmuctin";
-			// Thực thi truy vấn
-			st = conn.createStatement();
-			rs = st.executeQuery(SQL_GET_ALL);
-			while (rs.next()) {
-				// Lấy dữ liệu trả về từ câu lệnh truy vấn
-				int catId = rs.getInt("ID_DanhMucTin");
-				String catName = rs.getString("Ten");
-				System.out.println("catId: " + catId + " --- catName: " + catName);
-				System.out.println("---------------------------------------------");
-			}
+			// final String SQL_GET_ALL = "SELECT ID_DanhMucTin, TenDanhMucTin AS Ten FROM
+			// danhmuctin";
+			// // Thực thi truy vấn
+			// st = conn.createStatement();
+			// rs = st.executeQuery(SQL_GET_ALL);
+			// while (rs.next()) {
+			// // Lấy dữ liệu trả về từ câu lệnh truy vấn
+			// int catId = rs.getInt("ID_DanhMucTin");
+			// String catName = rs.getString("Ten");
+			// System.out.println("catId: " + catId + " --- catName: " + catName);
+			// System.out.println("---------------------------------------------");
+			// }
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
 		} finally {

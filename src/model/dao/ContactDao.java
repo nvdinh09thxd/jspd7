@@ -12,6 +12,7 @@ public class ContactDao {
 	private static Connection conn;
 	private static PreparedStatement pst;
 	private static ResultSet rs;
+
 	public static int addItem(Contact item) {
 		int result = 0;
 		conn = ConnectDBMyFriends.getConnection();
