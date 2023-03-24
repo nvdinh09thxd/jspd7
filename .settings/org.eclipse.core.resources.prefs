@@ -1,7 +1,2 @@
 eclipse.preferences.version=1
-encoding//src/controller/DemoController.java=UTF-8
-encoding//src/controller/PublicDetailFriendController.java=UTF-8
-encoding//src/util/ConnectDBMyFriends.java=UTF-8
-encoding//src/util/ConnectJDBC.java=UTF-8
-encoding//src/util/DanhMucTin.java=UTF-8
-encoding//src/util/JDBCConnectionUtil.java=UTF-8
+encoding/<project>=UTF-8
